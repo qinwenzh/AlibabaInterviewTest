@@ -259,6 +259,7 @@ def kfold_lightgbm(df, num_folds, stratified=False, debug=False):
         sub_df = test_df[['SK_ID_CURR']].copy()
         sub_df['TARGET'] = sub_preds
         sub_df[['SK_ID_CURR', 'TARGET']].to_csv(submission_file_name, index=False)
+    if debug:
         display_importances(feature_importance_df)
     return feature_importance_df
 
